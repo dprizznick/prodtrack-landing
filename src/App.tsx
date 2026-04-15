@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { submitEarlyAccess } from './lib/api'
 
 const FEATURES = [
   {
@@ -96,10 +97,15 @@ function App() {
     e.preventDefault()
     if (!email || submitting) return
     setSubmitting(true)
-    // TODO: Wire to actual backend or email service
-    await new Promise(r => setTimeout(r, 800))
-    setSubmitted(true)
-    setSubmitting(false)
+    try {
+      await submitEarlyAccess(email)
+      setSubmitted(true)
+    } catch (err) {
+      console.error('Signup failed:', err)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
