@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { submitEarlyAccess } from './lib/api'
+import { auth0LoginUrl, auth0SignupUrl } from './lib/auth0'
 
 const FEATURES = [
   {
@@ -125,8 +126,11 @@ function App() {
             <a href="#early-access" className="hover:text-gray-900 transition-colors">Early Access</a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#early-access" className="text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
-              Get Early Access
+            <a href={auth0LoginUrl} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              Sign In
+            </a>
+            <a href={auth0SignupUrl} className="text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+              Get Started
             </a>
           </div>
         </div>
