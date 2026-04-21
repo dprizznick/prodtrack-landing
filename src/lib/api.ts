@@ -4,6 +4,10 @@ export async function submitEarlyAccess(data: {
   email: string
   name?: string
   company?: string
+  phone?: string
+  message?: string
+  users?: string
+  sites?: string
 }) {
   const res = await fetch(`${API_URL}/early-access`, {
     method: 'POST',

@@ -1,19 +1,6 @@
-const domain = import.meta.env.VITE_AUTH0_DOMAIN
-const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID
-const audience = import.meta.env.VITE_AUTH0_AUDIENCE
-const appUrl = import.meta.env.VITE_APP_URL || 'http://localhost:5173'
+const appUrl = import.meta.env.VITE_APP_URL || 'http://localhost:5173/mdix/'
 
-function buildAuth0Url(screenHint?: 'signup') {
-  const params = new URLSearchParams({
-    response_type: 'code',
-    client_id: clientId,
-    redirect_uri: appUrl,
-    audience,
-    scope: 'openid profile email',
-  })
-  if (screenHint) params.set('screen_hint', screenHint)
-  return `https://${domain}/authorize?${params.toString()}`
-}
-
-export const auth0LoginUrl = buildAuth0Url()
-export const auth0SignupUrl = buildAuth0Url('signup')
+// Link directly to the MDIX app — the app's Auth0 SDK handles the full PKCE flow
+export const auth0LoginUrl = `${appUrl}login?auth0=login`
+export const auth0SignupUrl = `${appUrl}login?auth0=signup`
+export const demoUrl = `${appUrl}?demo=true`
