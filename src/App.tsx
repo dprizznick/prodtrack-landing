@@ -111,14 +111,14 @@ function BuzzwordBanner() {
   const words = BUZZWORDS[idx]
 
   return (
-    <section className="py-12 border-y border-gray-100 bg-gray-50/50">
+    <section className="py-10 md:py-12 border-y border-gray-100 bg-gray-50/50">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6">Built for lean manufacturing teams</p>
-        <div className={`flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-gray-300 text-2xl font-bold tracking-tight transition-opacity duration-1000 ${fading ? 'opacity-0' : 'opacity-100'}`}>
+        <p className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider mb-4 md:mb-6">Built for lean manufacturing teams</p>
+        <div className={`flex items-center justify-center gap-3 md:gap-6 text-gray-300 text-base md:text-2xl font-bold tracking-tight transition-opacity duration-1000 ${fading ? 'opacity-0' : 'opacity-100'}`}>
           {words.map((w, i) => (
-            <span key={w}>
-              {i > 0 && <span className="text-gray-200 mr-10">|</span>}
-              {w}
+            <span key={w} className="flex items-center gap-3 md:gap-6">
+              {i > 0 && <span className="text-gray-200">·</span>}
+              <span>{w}</span>
             </span>
           ))}
         </div>
@@ -161,11 +161,11 @@ function App() {
             <a href="#pricing" className="hover:text-gray-900 transition-colors">Pricing</a>
             <a href="#early-access" className="hover:text-gray-900 transition-colors">Early Access</a>
           </div>
-          <div className="flex items-center gap-3">
-            <a href={auth0LoginUrl} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+          <div className="flex items-center gap-2 md:gap-3">
+            <a href={auth0LoginUrl} className="text-xs md:text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
               Sign In
             </a>
-            <a href={auth0SignupUrl} className="text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-4 py-2 rounded-lg transition-all shadow-sm">
+            <a href={auth0SignupUrl} className="text-xs md:text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg transition-all shadow-sm">
               Get Started
             </a>
           </div>
@@ -173,21 +173,21 @@ function App() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 md:pt-32 pb-14 md:pb-20 px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1]">
             Manufacturing e<span className="text-blue-600">X</span>cellence,{' '}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">measured.</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 md:mt-6 text-base md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Real-time production tracking, KPI management, and AI-powered insights
             for manufacturing teams. From the shop floor to the boardroom.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={demoUrl} className="w-full sm:w-auto text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium px-8 py-3.5 rounded-xl text-base transition-all shadow-lg shadow-blue-600/20">
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+            <a href={demoUrl} className="w-full sm:w-auto text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium px-6 md:px-8 py-3 md:py-3.5 rounded-xl text-sm md:text-base transition-all shadow-lg shadow-blue-600/20">
               Try Live Demo
             </a>
-            <a href="#early-access" className="w-full sm:w-auto text-center bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-8 py-3.5 rounded-xl text-base transition-colors border border-gray-200 animate-pulse">
+            <a href="#early-access" className="w-full sm:w-auto text-center bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-6 md:px-8 py-3 md:py-3.5 rounded-xl text-sm md:text-base transition-colors border border-gray-200 animate-pulse">
               Request Early Access
             </a>
           </div>
@@ -196,6 +196,26 @@ function App() {
 
       {/* ── Rotating buzzwords ── */}
       <BuzzwordBanner />
+
+      {/* ── Social Proof ── */}
+      <section className="py-10 md:py-16 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
+            <div>
+              <div className="text-lg md:text-3xl font-bold text-gray-900">Fortune 500</div>
+              <div className="text-[10px] md:text-sm text-gray-500 mt-1">Deployed at a Fortune 500 site</div>
+            </div>
+            <div>
+              <div className="text-lg md:text-3xl font-bold text-gray-900">8 Modules</div>
+              <div className="text-[10px] md:text-sm text-gray-500 mt-1">Complete OpEx platform</div>
+            </div>
+            <div>
+              <div className="text-lg md:text-3xl font-bold text-gray-900">AI-Powered</div>
+              <div className="text-[10px] md:text-sm text-gray-500 mt-1">Natural language analytics</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Features ── */}
       <section id="features" className="py-24 px-6">
@@ -215,7 +235,7 @@ function App() {
                 onClick={() => setPreviewImage(f.screenshots[0])}
               >
                 {/* Screenshot preview — always visible */}
-                <div className="bg-gray-50 p-4 h-56 flex items-center justify-center" onClick={e => e.stopPropagation()}>
+                <div className="bg-gray-50 p-3 md:p-4 h-40 md:h-56 flex items-center justify-center" onClick={e => e.stopPropagation()}>
                   {f.screenshots.length === 1 ? (
                     <img
                       src={f.screenshots[0]}
@@ -285,7 +305,7 @@ function App() {
             </div>
 
             {/* Pro */}
-            <div className="rounded-2xl p-8 flex flex-col bg-gradient-to-br from-blue-600 to-indigo-700 text-white ring-4 ring-blue-600/20 scale-[1.02]">
+            <div className="rounded-2xl p-6 md:p-8 flex flex-col bg-gradient-to-br from-blue-600 to-indigo-700 text-white ring-4 ring-blue-600/20 md:scale-[1.02]">
               <h3 className="text-lg font-semibold text-blue-100">Pro</h3>
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-4xl font-bold text-white">Custom</span>
@@ -332,7 +352,7 @@ function App() {
       </section>
 
       {/* ── Early Access Signup ── */}
-      <section id="early-access" className="py-24 px-6 bg-gray-50">
+      <section id="early-access" className="py-16 md:py-24 px-4 md:px-6 bg-gray-50">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Get early access</h2>

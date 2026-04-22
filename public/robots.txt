@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /mdix/api/
+Disallow: /mdix/admin
+
+Sitemap: https://prizm-bi.com/sitemap.xml
